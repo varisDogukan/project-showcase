@@ -1,3 +1,4 @@
+import "express-async-errors";
 import express, { Request, Response, NextFunction } from "express";
 import morgan from "morgan";
 import * as dotenv from "dotenv";
@@ -11,8 +12,8 @@ import authRouter from "./routes/authRouter";
 // middleware
 import errorHandlerMiddleware from "./middlewares/errorHandlerMiddleware";
 
-dotenv.config();
 const app = express();
+dotenv.config();
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));

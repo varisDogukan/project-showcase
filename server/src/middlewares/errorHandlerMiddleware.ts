@@ -10,5 +10,6 @@ export default function errorHandlerMiddleware(
   console.log(err);
   const statusCode = err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
   const msg = err.message || "something went wrong, try again later";
+
   res.status(statusCode).json({ msg });
 }
