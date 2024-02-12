@@ -3,7 +3,7 @@ import { BadRequestError } from "../errors/customErrors";
 import { NextFunction, Request, Response } from "express";
 import User from "../models/UserModel";
 
-const withValidationErrors = (validateValues: any) => {
+function withValidationErrors(validateValues: any) {
   return [
     validateValues,
     (req: Request, res: Response, next: NextFunction) => {
@@ -19,7 +19,7 @@ const withValidationErrors = (validateValues: any) => {
       next();
     },
   ];
-};
+}
 
 export const validateRegisterInput = withValidationErrors([
   body("name").notEmpty().withMessage("name is required"),
