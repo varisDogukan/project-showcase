@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import morgan from "morgan";
 import * as dotenv from "dotenv";
+import connectDB from "./database/connect";
 
 dotenv.config();
 const app = express();
@@ -28,8 +29,19 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 const port = process.env.PORT || 5100;
-app.listen(port, () => {
-  console.log(`Server running on PORT ${port} ...`);
-});
+const start = async () => {
+  try {
+    await connectDB(process.env.MONGO_URL as string);
+
+    app.listen(port, () => {
+      console.log(`Server is listening on port ${port}...`);
+    });
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
+
+start();
 
 export default app;
