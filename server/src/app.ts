@@ -5,8 +5,11 @@ import * as dotenv from "dotenv";
 // database
 import connectDB from "./database/connect";
 
-// routes
+// routers
 import authRouter from "./routes/authRouter";
+
+// middleware
+import errorHandlerMiddleware from "./middlewares/errorHandlerMiddleware";
 
 dotenv.config();
 const app = express();
@@ -32,11 +35,7 @@ app.use("*", (req: Request, res: Response) => {
 });
 
 // error
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  console.log(err);
-
-  res.status(500).json({ msg: "something went wrong" });
-});
+app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5100;
 const start = async () => {
