@@ -7,6 +7,7 @@ type Store = {
 
 function checkStorage() {
   if (
+    typeof window !== "undefined" &&
     !("theme" in localStorage) &&
     localStorage.themeTitle !== "light" &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
