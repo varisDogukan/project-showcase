@@ -21,21 +21,16 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World");
-});
+app.get("/", (req: Request, res: Response) => res.send("Hello World"));
 
 // routes
 const base = "/api/v1";
-
 app.use(`${base}/auth`, authRouter);
 
-// not found
-app.use("*", (req: Request, res: Response) => {
-  res.status(404).json({ msg: "not found" });
-});
-
-// error
+// not found / errorHandler
+app.use("*", (req: Request, res: Response) =>
+  res.status(404).json({ msg: "not found" })
+);
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5100;
