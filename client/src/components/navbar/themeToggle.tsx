@@ -1,17 +1,17 @@
 "use client";
 
 import useStore from "@/stores/zustandStore";
-import { Wrapper } from "./styles/themeToggle.styles";
+import LabelWrapper from "./styles/themeToggle.styles";
 
 export default function ThemeToggle() {
   const { themeTitle, toggleTheme } = useStore();
 
   return (
-    <Wrapper>
+    <LabelWrapper>
       <input
         type="checkbox"
         className="toggle-checkbox"
-        checked={themeTitle === "light" ? true : false}
+        checked={themeTitle === "dark"}
         onChange={toggleTheme}
       />
       <svg className="toggle-checkbox__icon" viewBox="0 0 100 100">
@@ -59,6 +59,6 @@ export default function ThemeToggle() {
         <line className="line line--7" x1="50" y1="23" x2="50" y2="28" />
         <line className="line line--8" x1="50" y1="23" x2="50" y2="28" />
       </svg>
-    </Wrapper>
+    </LabelWrapper>
   );
 }

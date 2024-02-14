@@ -7,9 +7,10 @@ type Store = {
 
 function checkStorage() {
   if (
-    (typeof window !== "undefined" && localStorage.themeTitle !== "light") ||
-    (!("themeTitle" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
+    typeof window !== "undefined" &&
+    (localStorage.themeTitle === "dark" ||
+      (!("themeTitle" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches))
   ) {
     return "dark";
   } else {

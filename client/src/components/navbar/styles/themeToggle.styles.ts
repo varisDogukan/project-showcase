@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.label`
+const LabelWrapper = styled.label`
   display: block;
   width: 50px;
   height: 50px;
@@ -138,3 +138,5 @@ export const Wrapper = styled.label`
     outline: none;
   }
 `;
+
+export default LabelWrapper;
