@@ -1,3 +1,4 @@
+import { Navbar } from "@/components";
 import ThemeProvider from "./themeProvider";
 
 type Props = {
@@ -7,7 +8,11 @@ type Props = {
 export default function WrapperProvider({ children }: Props) {
   return (
     <>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider>
+        <Navbar />
+
+        {children}
+      </ThemeProvider>
     </>
   );
 }

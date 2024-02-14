@@ -28,6 +28,7 @@ const GlobalStyles = createGlobalStyle`
   --primary-bg: ${(props) => props.theme.primaryBg};
 
   --secondary-bg: ${(props) => props.theme.secondaryBg};  
+  --stroke-color: hsl(0, 0%, 48%);
   
   /* SHADOW */
   --bs-full: 5px 5px 0px rgba(0,0,0, 1);
@@ -35,16 +36,18 @@ const GlobalStyles = createGlobalStyle`
   --bs-disabled-full: 5px 5px 0px rgba(0,0,0, 0.5);
   --bs-disabled-full-hover: 2px 2px 0px rgba(0,0,0, 0.5);
     
-  --max-width: 1140px;
+  --max-width: 1440px;
   --form-max-width: 617px;
   --transition: all .2s linear;
+  --max-container: min(90%, var(--max-width));
 }
 
 *, *::before, *::after { 
   box-sizing: border-box; 
   margin: 0; 
   padding: 0; 
-  font-family: inherit 
+  font-family: inherit;
+  transition: color .2s ease, background .2s ease;
 }
 
 html { font-size: 100%; } 
@@ -72,7 +75,7 @@ a {
 
 input, button, textarea, select { font: inherit; }
 
-button { cursor: pointer; }
+button { cursor: pointer; border: none; }
 
 p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
 
