@@ -58,6 +58,21 @@ body {
   -webkit-font-smoothing: antialiased; 
   background-color: var(--primary-bg); 
   color: var(--primary-color);
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+ 
+  &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    border-radius: 10px;
+  }  
 }
 
 img, picture, video, canvas, svg {  

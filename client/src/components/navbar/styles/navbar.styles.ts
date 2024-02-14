@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-export const Nav = styled.nav`
+const NavbarWrapper = styled.nav`
   width: var(--max-container);
   margin: 0 auto;
   padding: 20px 0;
@@ -11,8 +11,4 @@ export const Nav = styled.nav`
   justify-content: space-between;
 `;
 
-export const NavContent = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 5px;
-`;
+export default NavbarWrapper;

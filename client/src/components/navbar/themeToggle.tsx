@@ -1,17 +1,24 @@
 "use client";
 
+import React from "react";
 import useStore from "@/stores/zustandStore";
 import LabelWrapper from "./styles/themeToggle.styles";
+import { VisuallyHidden } from "..";
 
 export default function ThemeToggle() {
   const { themeTitle, toggleTheme } = useStore();
+  const [checkedTheme, setCheckedTheme] = React.useState(false);
+
+  React.useEffect(() => {
+    setCheckedTheme(themeTitle === "light");
+  }, [themeTitle]);
 
   return (
     <LabelWrapper>
       <input
         type="checkbox"
         className="toggle-checkbox"
-        checked={themeTitle === "dark"}
+        checked={checkedTheme}
         onChange={toggleTheme}
       />
       <svg className="toggle-checkbox__icon" viewBox="0 0 100 100">
@@ -59,6 +66,7 @@ export default function ThemeToggle() {
         <line className="line line--7" x1="50" y1="23" x2="50" y2="28" />
         <line className="line line--8" x1="50" y1="23" x2="50" y2="28" />
       </svg>
+      <VisuallyHidden>Theme toggle button</VisuallyHidden>
     </LabelWrapper>
   );
 }

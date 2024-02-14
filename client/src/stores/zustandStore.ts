@@ -3,6 +3,9 @@ import { create } from "zustand";
 type Store = {
   themeTitle: "dark" | "light";
   toggleTheme: () => void;
+
+  isShowSignModal: boolean;
+  showSignModal: () => void;
 };
 
 function checkStorage() {
@@ -25,7 +28,16 @@ const useStore = create<Store>((set) => ({
       const themeTitle = state.themeTitle === "dark" ? "light" : "dark";
       localStorage.themeTitle = themeTitle;
 
-      return { themeTitle };
+      return { ...state, themeTitle };
+    }),
+
+  isShowSignModal: false,
+  showSignModal: () =>
+    set((state) => {
+      const isShowSignModal = !state.isShowSignModal;
+      localStorage.isShowSignModal = isShowSignModal;
+
+      return { ...state, isShowSignModal };
     }),
 }));
 
