@@ -4,14 +4,22 @@ import { createGlobalStyle } from "styled-components";
 
 export const theme = {
   dark: {
-    primaryColor: "#ffffff",
-    primaryBg: "#2d2d2d",
-    secondaryBg: "#3A3A3A",
+    primaryColor: "#e2e2e2",
+    primaryBg: "#1d1d1d",
+    secondaryBg: "#2a2a2a",
+    secondaryColor: "#c3c3c3",
+    tertiaryBg: "#324e4e",
+    tertiaryColor: "#c3c3c3",
+    errorColor: "#cc1000",
   },
   light: {
-    primaryColor: "#2d2d2d",
-    primaryBg: "#ffffff",
-    secondaryBg: "",
+    primaryColor: "#1d1d1d",
+    primaryBg: "#e2e2e2",
+    secondaryBg: "#c3c3c3",
+    secondaryColor: "#2a2a2a",
+    tertiaryBg: "#93b9b9",
+    tertiaryColor: "#2a2a2a",
+    errorColor: "#aa0000",
   },
 };
 
@@ -26,8 +34,14 @@ const GlobalStyles = createGlobalStyle`
   /* COLORS */ 
   --primary-color: ${(props) => props.theme.primaryColor};
   --primary-bg: ${(props) => props.theme.primaryBg};
-
   --secondary-bg: ${(props) => props.theme.secondaryBg};  
+  --secondary-color: ${(props) => props.theme.secondaryColor};
+  --tertiary-bg: ${(props) => props.theme.tertiaryBg};  
+  --tertiary-color: ${(props) => props.theme.tertiaryColor};
+  --error-color: ${(props) => props.theme.errorColor};
+
+  --transparent: transparent;
+
   --stroke-color: hsl(0, 0%, 48%);
   
   /* SHADOW */
@@ -47,7 +61,15 @@ const GlobalStyles = createGlobalStyle`
   margin: 0; 
   padding: 0; 
   font-family: inherit;
-  transition: color .2s ease, background .2s ease;
+  transition: color .2s ease, background .2s ease;  
+}
+
+* {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */ 
 }
 
 html { font-size: 100%; } 
@@ -57,22 +79,7 @@ body {
   line-height: 1.5;  
   -webkit-font-smoothing: antialiased; 
   background-color: var(--primary-bg); 
-  color: var(--primary-color);
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    width: 1em;
-  }
- 
-  &::-webkit-scrollbar-track {
-      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
-    border-radius: 10px;
-  }  
+  color: var(--primary-color); 
 }
 
 img, picture, video, canvas, svg {  

@@ -6,6 +6,9 @@ type Store = {
 
   isShowSignModal: boolean;
   showSignModal: () => void;
+
+  isSignIn: boolean;
+  changeSignType: () => void;
 };
 
 function checkStorage() {
@@ -28,16 +31,23 @@ const useStore = create<Store>((set) => ({
       const themeTitle = state.themeTitle === "dark" ? "light" : "dark";
       localStorage.themeTitle = themeTitle;
 
-      return { ...state, themeTitle };
+      return { themeTitle };
     }),
 
   isShowSignModal: false,
   showSignModal: () =>
     set((state) => {
       const isShowSignModal = !state.isShowSignModal;
-      localStorage.isShowSignModal = isShowSignModal;
 
-      return { ...state, isShowSignModal };
+      return { isShowSignModal };
+    }),
+
+  isSignIn: false,
+  changeSignType: () =>
+    set((state) => {
+      const isSignIn = !state.isSignIn;
+
+      return { isSignIn };
     }),
 }));
 

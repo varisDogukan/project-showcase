@@ -9,7 +9,9 @@ export default function NavbarContent() {
 
   return (
     <NavbarContentWrapper>
-      <Button onClick={showSignModal}>Sign</Button>
+      <Button variant="secondary" onClick={showSignModal}>
+        Sign
+      </Button>
       <ThemeToggle />
 
       {isShowSignModal && (
