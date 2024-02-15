@@ -45,10 +45,15 @@ const GlobalStyles = createGlobalStyle`
   --stroke-color: hsl(0, 0%, 48%);
   
   /* SHADOW */
-  --bs-full: 5px 5px 0px rgba(0,0,0, 1);
-  --bs-full-hover: 2px 2px 0px rgba(0,0,0, 1);  
-  --bs-disabled-full: 5px 5px 0px rgba(0,0,0, 0.5);
-  --bs-disabled-full-hover: 2px 2px 0px rgba(0,0,0, 0.5);
+  --shadow-color: 180deg 22% 48%;
+  --bs:	0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.55),
+    		0.3px 0.6px 0.5px -0.7px hsl(var(--shadow-color) / 0.48),
+    		0.7px 1.5px 1.2px -1.4px hsl(var(--shadow-color) / 0.41),
+    		1.9px 3.7px 3.1px -2.1px hsl(var(--shadow-color) / 0.35),
+    		4.1px 8.2px 6.9px -2.9px hsl(var(--shadow-color) / 0.28),
+    		7.7px 15.4px 12.9px -3.6px hsl(var(--shadow-color) / 0.21),
+    		13.2px 26.3px 22.1px -4.3px hsl(var(--shadow-color) / 0.14),
+    		20.8px 41.5px 34.8px -5px hsl(var(--shadow-color) / 0.07);
     
   --max-width: 1440px;
   --form-max-width: 617px;

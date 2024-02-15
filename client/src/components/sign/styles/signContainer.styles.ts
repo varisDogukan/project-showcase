@@ -9,6 +9,7 @@ const SignContainerWrapper = styled.div`
   color: var(--secondary-color);
   border-radius: 8px;
   padding: 50px 20px 20px;
+  box-shadow: var(--bs);
 
   h4 {
     margin-bottom: 30px;
