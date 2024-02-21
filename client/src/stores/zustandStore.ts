@@ -1,5 +1,11 @@
 import { create } from "zustand";
 
+export type User = {
+  name?: string;
+  email: string;
+  password: string;
+};
+
 type Store = {
   themeTitle: "dark" | "light";
   toggleTheme: () => void;
@@ -9,6 +15,11 @@ type Store = {
 
   isSignIn: boolean;
   changeSignType: () => void;
+
+  userInitialState: User;
+  userInfo: User;
+  setUserInfo: ({ name, value }: { name: string; value: string }) => void;
+  clearUserInfo: () => void;
 };
 
 function checkStorage() {
@@ -23,6 +34,12 @@ function checkStorage() {
     return "light";
   }
 }
+
+const initialState: User = {
+  name: "",
+  email: "",
+  password: "",
+};
 
 const useStore = create<Store>((set) => ({
   themeTitle: checkStorage(),
@@ -48,6 +65,17 @@ const useStore = create<Store>((set) => ({
       const isSignIn = !state.isSignIn;
 
       return { isSignIn };
+    }),
+
+  userInitialState: initialState,
+  userInfo: initialState,
+  setUserInfo: ({ name, value }) =>
+    set((state) => {
+      return { userInfo: { ...state.userInfo, [name]: value } };
+    }),
+  clearUserInfo: () =>
+    set((state) => {
+      return { userInfo: state.userInitialState };
     }),
 }));
 

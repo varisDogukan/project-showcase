@@ -22,31 +22,31 @@ function withValidationErrors(validateValues: any) {
 }
 
 export const validateRegisterInput = withValidationErrors([
-  body("name").notEmpty().withMessage("name is required"),
+  body("name").notEmpty().withMessage("name: name is required"),
   body("email")
     .notEmpty()
-    .withMessage("email is required")
+    .withMessage("email: email is required")
     .isEmail()
-    .withMessage("invalid email format")
+    .withMessage("email: invalid email format")
     .custom(async (email: string) => {
       const user = await User.findOne({ email });
 
       if (user) {
-        throw new BadRequestError("email already exists");
+        throw new BadRequestError("email: email already exists");
       }
     }),
   body("password")
     .notEmpty()
-    .withMessage("password is required")
+    .withMessage("password: password is required")
     .isLength({ min: 8 })
-    .withMessage("password must be at least 8 characters long"),
+    .withMessage("password: password must be at least 8 characters long"),
 ]);
 
 export const validateLoginInput = withValidationErrors([
   body("email")
     .notEmpty()
-    .withMessage("email is required")
+    .withMessage("email: email is required")
     .isEmail()
-    .withMessage("invalid email format"),
-  body("password").notEmpty().withMessage("password is required"),
+    .withMessage("email: invalid email format"),
+  body("password").notEmpty().withMessage("password: password is required"),
 ]);

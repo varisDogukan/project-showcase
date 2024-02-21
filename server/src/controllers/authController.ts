@@ -24,5 +24,13 @@ export async function login(req: Request, res: Response) {
 
   const token = createJWT({ userId: user._id });
 
-  res.json({ token });
+  const oneDay = 1000 * 60 * 60 * 24; // 1 day milisecond
+
+  res.cookie("token", token, {
+    httpOnly: true,
+    expires: new Date(Date.now() + oneDay),
+    secure: process.env.NODE_ENV === "production",
+  });
+
+  res.status(StatusCodes.OK).json({ msg: "user logged in" });
 }

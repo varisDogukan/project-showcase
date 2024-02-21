@@ -4,7 +4,8 @@ type Props = {
   children: React.ReactNode;
   variant: "transparent" | "primary" | "secondary" | "tertiaryBg";
   size: "normal" | "full";
-  onClick: () => void;
+  type?: "reset" | "button" | "submit";
+  onClick?: () => void;
 };
 
 const colors = {
@@ -30,18 +31,20 @@ export default function Button({
   children,
   variant,
   size = "normal",
-  ...props
+  type = "button",
+  onClick,
 }: Props) {
-  const variantBg = colors[variant].bg;
-  const variantColor = colors[variant].color;
+  const background = colors[variant].bg;
+  const color = colors[variant].color;
   const sizeProp = size === "normal" ? "auto" : "100%";
 
   return (
     <ButtonWrapper
+      type={type}
       size={sizeProp}
-      variantbg={variantBg}
-      variantcolor={variantColor}
-      {...props}
+      background={background}
+      color={color}
+      onClick={onClick}
     >
       {children}
     </ButtonWrapper>

@@ -5,15 +5,16 @@ type Props = {
   title: string;
   type: string;
   name: string;
+  placeholder: string;
   errorMsg?: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function FormInputGroup({ title, errorMsg, ...props }: Props) {
   return (
     <FormInputGroupWrapper htmlFor={props.name}>
       <span>{title}</span>
-      <input id={props.name} {...props} />
+      <input id={props.name} {...props} autoComplete="on" />
       {errorMsg && <p>{errorMsg}</p>}
     </FormInputGroupWrapper>
   );

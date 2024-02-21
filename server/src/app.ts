@@ -2,6 +2,7 @@ import "express-async-errors";
 import express, { Request, Response, NextFunction } from "express";
 import morgan from "morgan";
 import * as dotenv from "dotenv";
+import cors from "cors";
 
 // database
 import connectDB from "./database/connect";
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => res.send("Hello World"));

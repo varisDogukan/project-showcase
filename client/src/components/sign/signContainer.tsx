@@ -2,7 +2,7 @@ import React from "react";
 import useStore from "@/stores/zustandStore";
 import SignContainerWrapper from "./styles/signContainer.styles";
 import Image from "next/image";
-import { Button } from "..";
+import { Button, VisuallyHidden } from "..";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
 
@@ -23,6 +23,7 @@ export default function SignContainer() {
           width={20}
           height={20}
         />
+        <VisuallyHidden>Sign modal close button</VisuallyHidden>
       </Button>
       <h4>{isSignIn ? "Sign In" : "Sign Up"}</h4>
 
