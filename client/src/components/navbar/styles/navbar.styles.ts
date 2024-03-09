@@ -5,7 +5,7 @@ import styled from "styled-components";
 const NavbarWrapper = styled.nav`
   width: var(--max-container);
   margin: 0 auto;
-  padding: 20px 0;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;

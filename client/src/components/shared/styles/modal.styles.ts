@@ -16,6 +16,7 @@ const ModalWrapper = styled.div`
   overflow-y: auto;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 `;
 
 export default ModalWrapper;

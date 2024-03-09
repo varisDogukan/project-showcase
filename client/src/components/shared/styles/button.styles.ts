@@ -1,6 +1,7 @@
 "use client";
 
-import styled from "styled-components";
+import Link from "next/link";
+import styled, { css } from "styled-components";
 
 type Props = {
   color: string;
@@ -8,13 +9,11 @@ type Props = {
   size: string;
 };
 
-const ButtonWrapper = styled.button<Props>`
+const sharedStyle = css`
   padding: 8px 16px;
   border-radius: 4px;
   font-weight: 500;
-  background: var(${({ $background }) => $background});
-  color: var(${({ color }) => color});
-  width: ${(props) => props.size};
+
   transition: filter 0.2s ease;
 
   &:hover {
@@ -22,4 +21,17 @@ const ButtonWrapper = styled.button<Props>`
   }
 `;
 
-export default ButtonWrapper;
+export const ButtonWrapper = styled.button<Props>`
+  ${sharedStyle};
+
+  background: var(${({ $background }) => $background});
+  color: var(${({ color }) => color});
+  width: ${(props) => props.size};
+`;
+
+export const LinkWrapper = styled(Link)<Props>`
+  ${sharedStyle}
+  background: var(${({ $background }) => $background});
+  color: var(${({ color }) => color});
+  width: ${(props) => props.size};
+`;

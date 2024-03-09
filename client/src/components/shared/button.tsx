@@ -1,10 +1,11 @@
-import ButtonWrapper from "./styles/button.styles";
+import { ButtonWrapper, LinkWrapper } from "./styles/button.styles";
 
 type Props = {
   children: React.ReactNode;
   variant: "transparent" | "primary" | "secondary" | "tertiaryBg";
-  size: "normal" | "full";
+  size?: "normal" | "full";
   type?: "reset" | "button" | "submit";
+  href?: string;
   onClick?: () => void;
 };
 
@@ -32,21 +33,35 @@ export default function Button({
   variant,
   size = "normal",
   type = "button",
+  href,
   onClick,
 }: Props) {
   const background = colors[variant].bg;
   const color = colors[variant].color;
   const sizeProp = size === "normal" ? "auto" : "100%";
 
-  return (
-    <ButtonWrapper
-      type={type}
-      size={sizeProp}
-      $background={background}
-      color={color}
-      onClick={onClick}
-    >
-      {children}
-    </ButtonWrapper>
-  );
+  if (!href) {
+    return (
+      <ButtonWrapper
+        type={type}
+        size={sizeProp}
+        $background={background}
+        color={color}
+        onClick={onClick}
+      >
+        {children}
+      </ButtonWrapper>
+    );
+  } else {
+    return (
+      <LinkWrapper
+        $background={background}
+        color={color}
+        size={sizeProp}
+        href={href}
+      >
+        {children}
+      </LinkWrapper>
+    );
+  }
 }
