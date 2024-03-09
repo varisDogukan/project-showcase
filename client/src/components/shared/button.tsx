@@ -42,7 +42,7 @@ export default function Button({
     <ButtonWrapper
       type={type}
       size={sizeProp}
-      background={background}
+      $background={background}
       color={color}
       onClick={onClick}
     >

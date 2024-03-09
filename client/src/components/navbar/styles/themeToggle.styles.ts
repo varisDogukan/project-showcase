@@ -31,12 +31,12 @@ const LabelWrapper = styled.label`
     stroke: var(--stroke-color);
     stroke-width: 4;
 
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   .mask--outer,
   .mask--inner {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   .line {
@@ -45,7 +45,7 @@ const LabelWrapper = styled.label`
     stroke-linecap: round;
 
     transform-origin: center;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     opacity: 0;
   }

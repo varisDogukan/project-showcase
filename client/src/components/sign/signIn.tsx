@@ -25,24 +25,24 @@ export default function SignIn() {
   return (
     <SignUpWrapper onSubmit={handleSubmit}>
       <FormInputGroup
-        name="email"
+        name='email'
         onChange={handleInputChange}
-        title="email"
-        type="email"
-        errorMsg={errorContainer.email}
-        placeholder="example@gg.com"
+        title='email'
+        type='email'
+        errorMsg={errorContainer.email.slice(0, -2)}
+        placeholder='example@gg.com'
       />
 
       <FormInputGroup
-        name="password"
+        name='password'
         onChange={handleInputChange}
-        title="password"
-        type="password"
-        errorMsg={errorContainer.password}
-        placeholder="12345"
+        title='password'
+        type='password'
+        errorMsg={errorContainer.password.slice(0, -2)}
+        placeholder='passwor123'
       />
 
-      <Button type="submit" variant="tertiaryBg" size="full">
+      <Button type='submit' variant='tertiaryBg' size='full'>
         {isPending ? "Pending" : "Sign In"}
       </Button>
     </SignUpWrapper>
